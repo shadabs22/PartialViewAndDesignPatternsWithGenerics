@@ -83,9 +83,9 @@ namespace ForOOPS
 
         }
 
-       
+
     }
-    public sealed class sealedClass: AbstractClass, SimpleInterface
+    public sealed class sealedClass : AbstractClass, SimpleInterface
     {
         public sealedClass()
         {
@@ -111,7 +111,7 @@ namespace ForOOPS
         }
     }
 
-    public class NonSealedClass: SimpleInterface
+    public class NonSealedClass : SimpleInterface
     {
         public NonSealedClass()
         {
@@ -131,9 +131,91 @@ namespace ForOOPS
 
     enum SimpleEnum { }
 
+
+    class Comp1
+    {
+        public void Comp1Print()
+        {
+            Console.WriteLine("Comp1");
+        }
+    }
+
+    class Comp2
+    {
+        public void Comp2Print()
+        {
+            Console.WriteLine("Comp2");
+        }
+    }
+
+    class Comp3
+    {
+        public void Comp3Print()
+        {
+            Console.WriteLine("Comp3");
+        }
+    }
+
+    public class BaseInfo {
+
+    }
+
+    public class ParentInfo : BaseInfo
+    {
+
+    }
+
+
+    public class RequInfo : BaseInfo
+    {
+
+    }
+
+    public class ResInfo : BaseInfo
+    {
+
+    }
+
+    class TestClass<T, U>
+        where U:struct
+        where T: BaseInfo
+    {
+
+    }
     class Program
     {
-        static void Main(string[] args)
+
+        public static T Add<T>(T a,T b)
+        {
+            dynamic num1 = a;
+            dynamic num2 = b;
+            return num1 + num2;
+        }
+
+        public T GetComponent<T>() where T:new ()
+        {
+            dynamic result = new T();           
+           return (T)result;
+        }
+
+        public U GetComponentOfContrainedClass<T,U>(T requinfo,U respinfo) 
+            where T : BaseInfo, new()
+            where U : BaseInfo, new()
+        {
+         
+            dynamic result = respinfo;
+            return (U)result;
+        }
+
+        public T GetComponentOfGenericWithMultiConstrained<T, U>(T requinfo, T respinfo)
+            where T : BaseInfo
+            where U : new()
+        {
+            dynamic result = new U();
+            return (T)result;
+        }
+
+        void Main(string[] args)
         {
             try
             {
@@ -141,10 +223,19 @@ namespace ForOOPS
                 sealedClass.method();
 
                 SimpleInterface nonSealedCls = new NonSealedClass();
-                
+                Program program = new Program();
+                RequInfo requinfo = new RequInfo();
+                ResInfo resinfo = new ResInfo();
 
                 TestPrivateConstructor b = new TestPrivateConstructor();
                 var a = TestPrivateConstructor.GetInstance();
+                program.GetComponentOfContrainedClass<RequInfo, ResInfo>(requinfo, resinfo);
+                //program.GetComponentOfGenericWithMultiConstrained(requinfo, resinfo);
+                Comp1 comp1 = program.GetComponent<Comp1>();
+                comp1.Comp1Print();
+
+                Console.WriteLine(Program.Add<int>(5,6));
+                Console.ReadLine();
             }
             catch (Exception e)
             {

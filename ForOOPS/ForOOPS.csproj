@@ -42,8 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreationalPattern\AbtractFactoryPattern.cs" />
+    <Compile Include="BridgePattern.cs" />
+    <Compile Include="CreationalPattern\FactoryPattern.cs" />
+    <Compile Include="CreationalPattern\Singleton\OptimizedSingleton.cs" />
+    <Compile Include="CreationalPattern\Singleton\RealworldSingleton.cs" />
+    <Compile Include="CreationalPattern\Singleton\StructuralSingleton.cs" />
+    <Compile Include="MultiThreading\ThreadPoolExample.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CreationalPattern\PrototypePattern.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
