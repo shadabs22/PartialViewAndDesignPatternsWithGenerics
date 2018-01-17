@@ -47,7 +47,7 @@ namespace ForOOPS.MultiThreading
 
     public class ThreadPoolExample
     {
-        static void Main()
+        void Main()
         {
             const int FibonacciCalculations = 10;
 
