@@ -53,13 +53,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CreationalPattern\PrototypePattern.cs" />
     <Compile Include="StructuralPattern\Adapter.cs" />
-    <Compile Include="StructuralPattern\Composite\RealTimeMainApp.cs" />
-    <Compile Include="StructuralPattern\Composite\StructureCodeMainApp.cs" />
-    <Compile Include="StructuralPattern\Decorator\RealTimeMainApp.cs" />
-    <Compile Include="StructuralPattern\Decorator\StructuralCodeMainApp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="StructuralPattern\Decorator\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

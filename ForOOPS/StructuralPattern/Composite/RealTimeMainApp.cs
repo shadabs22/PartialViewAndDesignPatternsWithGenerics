@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DoFactory.GangOfFour.Composite.RealWorld
+namespace ForOOPS.StructuralPattern.Decorator
 {
     /// <summary>
 
@@ -11,7 +11,7 @@ namespace DoFactory.GangOfFour.Composite.RealWorld
 
     /// </summary>
 
-    class RealTimeMainApp
+    class DecoratorRealTimeMainApp
 
     {
         /// <summary>

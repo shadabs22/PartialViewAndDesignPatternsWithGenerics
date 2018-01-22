@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DoFactory.GangOfFour.Composite.Structural
+namespace ForOOPS.StructuralPattern.Decorator
 {
     /// <summary>
 
@@ -112,6 +112,11 @@ namespace DoFactory.GangOfFour.Composite.Structural
                 component.Display(depth + 2);
             }
         }
+
+        public override void Operation()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     /// <summary>
@@ -143,6 +148,11 @@ namespace DoFactory.GangOfFour.Composite.Structural
         public override void Display(int depth)
         {
             Console.WriteLine(new String('-', depth) + name);
+        }
+
+        public override void Operation()
+        {
+            throw new NotImplementedException();
         }
     }
 }

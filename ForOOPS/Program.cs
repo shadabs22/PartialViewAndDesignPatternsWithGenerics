@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -184,7 +185,10 @@ namespace ForOOPS
     }
     class Program
     {
-
+        
+        List<object> ComponentList = new List<object>();
+        ArrayList Components = new ArrayList();
+        //public<T> a = new <T>();
         public static T Add<T>(T a,T b)
         {
             dynamic num1 = a;
@@ -196,6 +200,65 @@ namespace ForOOPS
         {
             dynamic result = new T();           
            return (T)result;
+        }
+
+        public T GetComponentOne<T>() where T : new()
+        {
+            if (ComponentList.Count == 0)
+            {
+                throw new Exception();
+            }
+            List<T> generics = new List<T>();
+            foreach (object obj in ComponentList)
+            {
+                if (obj.GetType().Equals(typeof(T)))
+                {
+                    generics.Add((T)obj);
+                }
+                else if (obj.GetType().Equals(typeof(T)))
+                {
+                    generics.Add((T)obj);
+                }
+                else
+                {
+                    // error.
+                }
+            }
+            if (generics.Count == 1)
+            {
+                dynamic result = generics[0];
+                return (T)result;
+            }
+            else
+            {
+                throw new Exception();
+            }
+           
+        }
+        public List<T> GetComponents<T>() where T : new()
+        {
+            if (ComponentList.Count == 0)
+            {
+                throw new Exception();
+            }
+            List<T> generics = new List<T>();
+            foreach (object obj in ComponentList)
+            {
+                if (obj.GetType().Equals(typeof(T)))
+                {
+                    generics.Add((T)obj);
+                }               
+            }
+            if (generics.Count > 0)
+            {
+                dynamic result = generics;
+                return (List<T>)result;
+            }
+            else
+            {
+                throw new Exception();
+            }
+
         }
 
         public U GetComponentOfContrainedClass<T,U>(T requinfo,U respinfo) 
@@ -215,7 +278,20 @@ namespace ForOOPS
             return (T)result;
         }
 
-        void Main(string[] args)
+
+        public void AddComponent<T>() where T : new()
+        {
+            dynamic result = new T();
+            ComponentList.Add((T)result);
+        }
+
+        public void AddComponent<T>(T obj) where T : new()
+        {
+            dynamic result = obj;
+            ComponentList.Add((T)result);
+        }
+
+        static void Main(string[] args)
         {
             try
             {
@@ -232,6 +308,15 @@ namespace ForOOPS
                 program.GetComponentOfContrainedClass<RequInfo, ResInfo>(requinfo, resinfo);
                 //program.GetComponentOfGenericWithMultiConstrained(requinfo, resinfo);
                 Comp1 comp1 = program.GetComponent<Comp1>();
+
+                program.AddComponent<Comp1>();
+                program.AddComponent<Comp2>(new Comp2());
+                program.AddComponent<Comp1>(new Comp1());
+
+                Comp2 comp2 = program.GetComponent<Comp2>();
+                List<Comp1> comp1List= program.GetComponents<Comp1>();
+                comp1 = program.GetComponentOne<Comp1>();
+
                 comp1.Comp1Print();
 
                 Console.WriteLine(Program.Add<int>(5,6));

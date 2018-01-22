@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DoFactory.GangOfFour.Decorator.Structural
+namespace ForOOPS.StructuralPattern.Decorator
 {
     /// <summary>
 
@@ -10,8 +10,7 @@ namespace DoFactory.GangOfFour.Decorator.Structural
 
     /// </summary>
 
-    class MainApp
-
+    class DecoratorStructuralCodeMainApp
     {
         /// <summary>
 

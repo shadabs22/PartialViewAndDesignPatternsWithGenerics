@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DoFactory.GangOfFour.Adapter.RealWorld
+namespace ForOOPS.StructuralPattern.Decorator
 {
     /// <summary>
 
