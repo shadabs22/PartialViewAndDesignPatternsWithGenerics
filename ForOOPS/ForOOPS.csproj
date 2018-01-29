@@ -53,13 +53,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CreationalPattern\PrototypePattern.cs" />
     <Compile Include="StructuralPattern\Adapter.cs" />
+    <Compile Include="StructuralPattern\Composite\RealTimeMainApp.cs" />
+    <Compile Include="StructuralPattern\Composite\StructureCodeMainApp.cs" />
+    <Compile Include="StructuralPattern\Decorator\DecoratorStructuralCodeMainApp.cs" />
+    <Compile Include="StructuralPattern\Decorator\IDecorator.cs" />
+    <Compile Include="StructuralPattern\Decorator\RealTime.cs" />
+    <Compile Include="StructuralPattern\Facade\RealTime.cs" />
+    <Compile Include="StructuralPattern\Facade\Structural.cs" />
+    <Compile Include="StructuralPattern\Flyweight\RealTIme.cs" />
+    <Compile Include="StructuralPattern\Flyweight\Structural.cs" />
+    <Compile Include="StructuralPattern\Proxy\RealTime.cs" />
+    <Compile Include="StructuralPattern\Proxy\Structural.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="StructuralPattern\Decorator\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

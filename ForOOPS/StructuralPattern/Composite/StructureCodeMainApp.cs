@@ -1,16 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ForOOPS.StructuralPattern.Decorator
-{
-    /// <summary>
-
-    /// MainApp startup class for Structural 
-
-    /// Composite Design Pattern.
-
-    /// </summary>
-
+namespace ForOOPS.StructuralPattern.Composite
+{   
     class StructureCodeMainApp
     {
         /// <summary>
@@ -112,11 +104,6 @@ namespace ForOOPS.StructuralPattern.Decorator
                 component.Display(depth + 2);
             }
         }
-
-        public override void Operation()
-        {
-            throw new NotImplementedException();
-        }
     }
 
     /// <summary>
@@ -148,11 +135,6 @@ namespace ForOOPS.StructuralPattern.Decorator
         public override void Display(int depth)
         {
             Console.WriteLine(new String('-', depth) + name);
-        }
-
-        public override void Operation()
-        {
-            throw new NotImplementedException();
         }
     }
 }

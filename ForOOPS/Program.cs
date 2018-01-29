@@ -291,7 +291,7 @@ namespace ForOOPS
             ComponentList.Add((T)result);
         }
 
-        static void Main(string[] args)
+        void Main(string[] args)
         {
             try
             {
