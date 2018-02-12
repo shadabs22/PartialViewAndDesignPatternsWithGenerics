@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://www.dofactory.com/net/decorator-design-pattern -->
+<html style="" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Decorator .NET Design Pattern in C# and VB - dofactory.com</title>
+    <meta name="keywords" content="Decorator .NET Design Pattern, Microsoft ASP.NET, C#, VB, Azure">
+    <meta name="description" content="Decorator .NET Design Pattern C# and VB.  Free source code and UML">
+    <link rel="icon" type="image/png" href="http://www.dofactory.com/favicon.ico">
+
+    <link href="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/prettify.css" rel="stylesheet">
+<link href="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/font-awesome.min.css" rel="stylesheet">
+<link href="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/bootstrap.css" rel="stylesheet">
+<link href="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/app.css" rel="stylesheet">
+
+    <script async="" src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/analytics.js.download"></script><script src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/modernizr-2.6.2.js.download"></script>
+<script src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/modernizr-2.7.2.js.download"></script>
+
+
+    <meta name="copyright" content="(c) Copyright 2018 Dofactory. All rights reserved.">
+
+<style type="text/css">.dropdown-submenu:hover>.dropdown-menu{display:none}</style></head>
+<body>
+
+    
+<div class="org-darkorange" style="height:70px;">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="pull-left " style="position:relative;height:70px; width:81px;">
+                <div style="position:absolute;top:0;left:10px;width:81px;height:90px;background:#ebe4d9;box-shadow: 1px 2px 2px rgba(68,17,0,0.5);">
+                    <a href="http://www.dofactory.com/"><img src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/logo2.png" style="width:67px;height:67px;margin:10px 0 0 8px;"></a>
+                </div>
+            </div>
+            <div class="pull-left hidden-xs" style="height:70px;">
+                <a href="http://www.dofactory.com/">
+                    <img style="margin: 20px 0 0 30px; width: 130px; height: 32px;" src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/dofactory2.png" alt="">
+                </a>
+            </div>
+            <div class="pull-right">
+                <div style="height:36px;margin-top:18px;padding:5px 10px 5px 5px;">
+                        <a style="color:#f5f1f1;" class="btn btn-darkbrown" href="http://www.dofactory.com/login.aspx">Login</a><span>&nbsp;&nbsp;&nbsp;</span>
+                        <a style="color:#f5f1f1;" class="btn btn-darkbrown" href="http://www.dofactory.com/join.aspx">Join Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="gray" style="height:35px;">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="pull-right visible-xs">
+                <a href="javascript:void(0);"><img src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/hamburger.png" style="margin:8px 8px;" onclick="$(&#39;#small-menus&#39;).slideToggle();"></a>
+            </div>
+
+            <div class="pull-left hidden-xs" style="width:87px;height:35px;">
+
+            </div>
+            <div class="pull-left hidden-xs ">
+                <div>
+                    <ul class="nav nav-pills nav-menu-pills" style="padding: 0px 0 0 20px;">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle disable domenu" data-hover="dropdown" data-target="#" href="http://www.dofactory.com/products/products.aspx">Products</a>
+                            <ul class="dropdown-menu" style="background: #aaa091;">
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/products">All Products and Pricing</a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/products/net-design-pattern-framework">.NET Design Pattern Framework <sup>TM</sup> 4.5 -- C# Edition</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/products/net-design-pattern-framework">.NET Design Pattern Framework <sup>TM</sup> 4.5 -- VB Edition</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/products/pro-net-design-pattern-framework">PRO .NET Design Pattern Framework <sup>TM</sup> 4.5 -- C# Edition</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/products/pro-net-design-pattern-framework">PRO .NET Design Pattern Framework <sup>TM</sup> 4.5 -- VB Edition</a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/products/javascript-jquery-design-pattern-framework">JavaScript + jQuery Pattern Framework <sup>TM</sup></a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/products/sql-database-design-pattern-framework">SQL + Database Pattern Framework <sup>TM</sup></a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/products/sql-database-design-pattern-framework">PRO SQL + Database Pattern Framework <sup>TM</sup></a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle disable domenu" data-hover="dropdown" data-target="#" href="http://www.dofactory.com/customers">Customers</a>
+                            <ul class="dropdown-menu" style="background: #aaa091;">
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/customers/">Meet our Customers</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/customers/stories">Success Stories</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle disable domenu" data-hover="dropdown" data-target="#" href="http://www.dofactory.com/reference">Reference Guides</a>
+                            <ul class="dropdown-menu" style="background: #aaa091;">
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/net/design-patterns">.NET Design Patterns</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/javascript/design-patterns">JavaScript Design Patterns</a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/tutorial/javascript">JavaScript Tutorial</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/sql/tutorial">SQL Tutorial</a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/reference/connection-strings">Connection Strings</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/reference/visual-studio-shortcuts">Visual Studio Shortcuts</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/reference/csharp-coding-standards">C# Coding Standards</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/reference/html-color-codes">HTML Color Codes</a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/reference">All References</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle disable domenu" data-hover="dropdown" data-target="#" href="http://www.dofactory.com/topic/search.aspx">Community</a>
+                            <ul class="dropdown-menu" style="background: #aaa091;">
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/topic/search.aspx">Questions</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/topic/add.aspx">Ask Question</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/topic/topics.aspx">Explore</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/tag/tags.aspx">Tags</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/user/users.aspx">Users</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle disable domenu" data-hover="dropdown" data-target="#" href="http://www.dofactory.com/about">About Us</a>
+                            <ul class="dropdown-menu" style="background: #aaa091;">
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/about">Company</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/story">Our Story</a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/services">Services</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/training">Training</a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/contact">Contact Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="visible-xs" style="clear:both;">
+    <div id="small-menus" class="gray" style="display:none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12" style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a onclick="$(&#39;#menus-1&#39;).slideToggle();" class="domenu" href="javascript:void(0);">Products</a></div>
+                <div id="menus-1" class="col-xs-12" style="display:none;">
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/products">All Products and Pricing</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/products/net-design-pattern-framework">.NET Design Pattern Framework <sup>TM</sup> 4.5 -- C# Edition</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/products/net-design-pattern-framework">.NET Design Pattern Framework <sup>TM</sup> 4.5 -- VB Edition</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/products/pro-net-design-pattern-framework">PRO .NET Design Pattern Framework <sup>TM</sup> 4.5 -- C# Edition</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/products/pro-net-design-pattern-framework">PRO .NET Design Pattern Framework <sup>TM</sup> 4.5 -- VB Edition</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/products/javascript-jquery-design-pattern-framework">JavaScript + jQuery Pattern Framework <sup>TM</sup></a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/products/sql-database-design-pattern-framework">SQL + Database Pattern Framework <sup>TM</sup></a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/products/sql-database-design-pattern-framework">PRO SQL + Database Pattern Framework <sup>TM</sup></a></div>
+                </div>
+                <div class="col-xs-12" style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a onclick="$(&#39;#menus-2&#39;).slideToggle();" class="domenu" href="javascript:void(0);">Customers</a></div>
+                <div id="menus-2" class="col-xs-12" style="display:none;">
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/customers/">Meet our Customers</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/customers/stories">Success Stories</a></div>
+                </div>
+                <div class="col-xs-12" style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a onclick="$(&#39;#menus-3&#39;).slideToggle();" class="domenu" href="javascript:void(0);">Reference Guides</a></div>
+                <div id="menus-3" class="col-xs-12" style="display:none;">
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/net/design-patterns">.NET Design Patterns</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/javascript/design-patterns">JavaScript Design Patterns</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/tutorial/javascript">JavaScript Tutorial</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/sql/tutorial">SQL Tutorial</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/reference/connection-strings">Connection Strings</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/reference/visual-studio-shortcuts">Visual Studio Shortcuts</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/reference/csharp-coding-standards">C# Coding Standards</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/reference/html-color-codes">HTML Color Codes</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/reference">All References</a></div>
+                </div>
+                <div class="col-xs-12" style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a onclick="$(&#39;#menus-4&#39;).slideToggle();" class="domenu" href="javascript:void(0);">Community</a></div>
+                <div id="menus-4" class="col-xs-12" style="display:none;">
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/topic/search.aspx">Questions</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/topic/add.aspx">Ask Question</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/topic/topics.aspx">Explore</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/tag/tags.aspx">Tags</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/user/users.aspx">Users</a></div>
+                </div>
+                <div class="col-xs-12" style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a onclick="$(&#39;#menus-5&#39;).slideToggle();" class="domenu" href="javascript:void(0);">About Us</a></div>
+                <div id="menus-5" class="col-xs-12" style="display:none;">
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/about">Company</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/story">Our Story</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/services">Services</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/training">Training</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/contact">Contact Us</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <input type="hidden" id="alert-delay">
+
+
+
+    
+
+<style>
+    ul.xx {
+        list-style: none;
+        padding-left: 15px;
+        margin: 0;
+    }
+
+        ul.xx li {
+            /*padding-left: 10px;
+    text-indent: 0px;*/
+            color: #333;
+        }
+
+            ul.xx li:before {
+                content: "• ";
+                color: #e41e15;
+                padding-right: 8px;
+            }
+</style>
+
+<div style="background:white; ">
+    
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-xs-12 col-md-9" style="padding:35px 15px 0 15px;">
+            <div style="padding:3px 0 30px 0;font-size:13px;">
+                <a class="btn btn-default btn-sm btn-back" href="http://www.dofactory.com/net/design-patterns"><i class="back-arrow"></i></a>
+                &nbsp;&nbsp;<a href="http://www.dofactory.com/net/design-patterns">back to .NET Design Patterns</a>
+                
+                
+            </div>
+
+
+            <h1>Decorator</h1>
+
+            <br>
+            <div class="clearfix">
+                <div class="pull-left">
+                    <table>
+                        <tbody><tr>
+                            <td style="width:200px;padding-left:20px;line-height:22px;">
+                                <img src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/redarrow.gif">&nbsp;<a class="scrollToTarget" href="http://www.dofactory.com/net/decorator-design-pattern#def">Definition</a><br>
+                                <img src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/redarrow.gif">&nbsp;<a class="scrollToTarget" href="http://www.dofactory.com/net/decorator-design-pattern#uml">UML diagram</a><br>
+                                <img src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/redarrow.gif">&nbsp;<a class="scrollToTarget" href="http://www.dofactory.com/net/decorator-design-pattern#par">Participants</a>
+                            </td>
+
+                        </tr>
+                    </tbody></table>
+                </div>
+                <div class="pull-left">
+                    <table>
+                        <tbody><tr>
+
+                            <td style="width:300px;padding-left:20px;">
+                                <img src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/redarrow.gif">&nbsp;<a class="scrollToTarget" href="http://www.dofactory.com/net/decorator-design-pattern#str">Structural code in C#</a><br>
+                                <img src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/redarrow.gif">&nbsp;<a class="scrollToTarget" href="http://www.dofactory.com/net/decorator-design-pattern#rea">Real-world code in C#</a><br>
+                                <img src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/redarrow.gif">&nbsp;<a class="scrollToTarget" href="http://www.dofactory.com/net/decorator-design-pattern#net">.NET Optimized code in C#
+                            </a></td>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+
+
+
+            <br>
+            <a name="def"></a>
+            <hr class="hr-orange">
+            <br>
+
+
+            <h3>Definition</h3>
+
+            <div style="width:80%;padding:6px 0;">
+                
+    Attach additional responsibilities to an object dynamically. Decorators
+    provide a flexible alternative to subclassing for extending functionality.
+  
+            </div>
+
+            <br>
+
+            <div class="clearfix">
+                <div class="pull-left" style="padding:5px 20px 0 0;">Frequency of use:</div>
+                <div class="pull-left"><img src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/use_medium.gif"></div>
+                <div class="pull-left" style="padding:5px 0px 0 15px;">Medium</div>
+            </div>
+
+            <br>
+            <br>
+            <a name="uml"></a>
+            <hr class="hr-orange">
+            <br>
+
+            <h3 id="uml-scroll">UML class diagram</h3>
+            <br>
+            <div style="padding-left:40px;">
+                <img class="img-responsive" src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/decorator.gif">
+            </div>
+
+            <br>
+            <br>
+            <a name="par"></a>
+            <hr class="hr-orange">
+            <br>
+
+            <h3 id="participants-scroll">Participants</h3>
+            <br>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;The classes and objects participating in this pattern are:
+            </p>
+
+            
+					<ul>
+					<li><font color="#aa0000"><b>Component </b></font>&nbsp;&nbsp;<font color="#007733"><b>(LibraryItem)</b></font>
+					<ul>
+					<li>defines the interface for objects that can have responsibilities added to 
+					them dynamically. </li></ul>
+					</li><li><font color="#aa0000"><b>ConcreteComponent </b></font>&nbsp;&nbsp;<font color="#007733"><b>(Book, Video)</b></font>
+					<ul>
+					<li>defines an object to which additional responsibilities can be attached. 
+					</li></ul>
+					</li><li><font color="#aa0000"><b>Decorator </b></font>&nbsp;&nbsp;<font color="#007733"><b>(Decorator)</b></font>
+					<ul>
+					<li>maintains a reference to a Component object and defines an interface that 
+					conforms to Component's interface. </li></ul>
+					</li><li><font color="#aa0000"><b>ConcreteDecorator </b></font>&nbsp;&nbsp;<font color="#007733"><b>(Borrowable)</b></font>
+					<ul>
+					<li>adds responsibilities to the component. </li></ul></li></ul>
+        
+
+            <br>
+            <a name="str"></a>
+            <hr class="hr-orange">
+            <br>
+
+            <h3>Structural code in C#</h3>
+            <br>
+            <p>
+                
+					This <font color="#bb0000">structural</font> code demonstrates the Decorator pattern which dynamically adds 
+					extra functionality to an existing object.
+        
+            </p>
+            <div class="div-hscroll">
+                <pre class="prettyprint linenums run code-hscroll"><ol class="linenums"><li class="L0"><span class="pln">                 </span></li><li class="L1"><div class="divsource"></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span style="color: blue;"><span class="kwd">using</span></span><span class="pln"> </span><span class="typ">System</span><span class="pun">;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span style="color: blue;"><span class="kwd">namespace</span></span><span class="pln"> </span><span class="typ">DoFactory</span><span class="pun">.</span><span class="typ">GangOfFour</span><span class="pun">.</span><span class="typ">Decorator</span><span class="pun">.</span><span class="typ">Structural</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pun">{</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> MainApp startup class for Structural </span></span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> Decorator Design Pattern.</span></span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">MainApp</span></span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> Entry point into console application.</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">static</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">Main</span><span class="pun">()</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Create ConcreteComponent and two Decorators</span></span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">ConcreteComponent</span></span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">ConcreteComponent</span></span><span class="pun">();</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">ConcreteDecoratorA</span></span><span class="pln"> d1 </span><span class="pun">=</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">ConcreteDecoratorA</span></span><span class="pun">();</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">ConcreteDecoratorB</span></span><span class="pln"> d2 </span><span class="pun">=</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">ConcreteDecoratorB</span></span><span class="pun">();</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Link decorators</span></span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d1</span><span class="pun">.</span><span class="typ">SetComponent</span><span class="pun">(</span><span class="pln">c</span><span class="pun">);</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d2</span><span class="pun">.</span><span class="typ">SetComponent</span><span class="pun">(</span><span class="pln">d1</span><span class="pun">);</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d2</span><span class="pun">.</span><span class="typ">Operation</span><span class="pun">();</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Wait for user</span></span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> The 'Component' abstract class</span></span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">abstract</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Component</span></span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">abstract</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">Operation</span><span class="pun">();</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> The 'ConcreteComponent' class</span></span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">ConcreteComponent</span></span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Component</span></span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">override</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">Operation</span><span class="pun">()</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"ConcreteComponent.Operation()"</span></span><span class="pun">);</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> The 'Decorator' abstract class</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">abstract</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Decorator</span></span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Component</span></span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">protected</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Component</span></span><span class="pln"> component</span><span class="pun">;</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">SetComponent</span><span class="pun">(</span><span style="color: #2b91af;"><span class="typ">Component</span></span><span class="pln"> component</span><span class="pun">)</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">this</span></span><span class="pun">.</span><span class="pln">component </span><span class="pun">=</span><span class="pln"> component</span><span class="pun">;</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">override</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">Operation</span><span class="pun">()</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">if</span></span><span class="pln"> </span><span class="pun">(</span><span class="pln">component </span><span class="pun">!=</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">null</span></span><span class="pun">)</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;component</span><span class="pun">.</span><span class="typ">Operation</span><span class="pun">();</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> The 'ConcreteDecoratorA' class</span></span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">ConcreteDecoratorA</span></span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Decorator</span></span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">override</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">Operation</span><span class="pun">()</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">base</span></span><span class="pun">.</span><span class="typ">Operation</span><span class="pun">();</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"ConcreteDecoratorA.Operation()"</span></span><span class="pun">);</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> The 'ConcreteDecoratorB' class</span></span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">ConcreteDecoratorB</span></span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Decorator</span></span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">override</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">Operation</span><span class="pun">()</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">base</span></span><span class="pun">.</span><span class="typ">Operation</span><span class="pun">();</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="typ">AddedBehavior</span><span class="pun">();</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"ConcreteDecoratorB.Operation()"</span></span><span class="pun">);</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">AddedBehavior</span><span class="pun">()</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pun">}</span></p></div></li><li class="L2"><span class="pln">&nbsp;</span></li><li class="L3"><span class="pln">&nbsp;</span></li><li class="L4"><span class="pln">        </span></li><li class="L5"><span class="pln">                </span></li></ol></pre>
+            </div>
+
+            <br>
+            <h5>Output</h5>
+
+            <div class="output">
+                
+ConcreteComponent.Operation()<br>
+ConcreteDecoratorA.Operation()<br>
+ConcreteDecoratorB.Operation()<br>
+        
+            </div>
+
+            <br>
+            <br>
+            <a name="rea"></a>
+            <hr class="hr-orange">
+            <br>
+
+            <h3>Real-world code in C#</h3>
+            <br>
+            <p>
+                
+This <font color="#00aa55">real-world</font> code demonstrates the Decorator pattern in which 'borrowable' functionality 
+is added to existing library items (books and videos). 
+        
+            </p>
+
+            <pre class="prettyprint linenums run code-hscroll"><ol class="linenums"><li class="L0"><span class="pln">                 </span></li><li class="L1"><div class="divsource"></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span style="color: blue;"><span class="kwd">using</span></span><span class="pln"> </span><span class="typ">System</span><span class="pun">;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span style="color: blue;"><span class="kwd">using</span></span><span class="pln"> </span><span class="typ">System</span><span class="pun">.</span><span class="typ">Collections</span><span class="pun">.</span><span class="typ">Generic</span><span class="pun">;</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span style="color: blue;"><span class="kwd">namespace</span></span><span class="pln"> </span><span class="typ">DoFactory</span><span class="pun">.</span><span class="typ">GangOfFour</span><span class="pun">.</span><span class="typ">Decorator</span><span class="pun">.</span><span class="typ">RealWorld</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pun">{</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> MainApp startup class for Real-World </span></span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> Decorator Design Pattern.</span></span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">MainApp</span></span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> Entry point into console application.</span></span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">static</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">Main</span><span class="pun">()</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Create book</span></span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Book</span></span><span class="pln"> book </span><span class="pun">=</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Book</span></span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"Worley"</span></span><span class="pun">,</span><span class="pln"> </span><span style="color: #a31515;"><span class="str">"Inside ASP.NET"</span></span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;book</span><span class="pun">.</span><span class="typ">Display</span><span class="pun">();</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Create video</span></span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Video</span></span><span class="pln"> video </span><span class="pun">=</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Video</span></span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"Spielberg"</span></span><span class="pun">,</span><span class="pln"> </span><span style="color: #a31515;"><span class="str">"Jaws"</span></span><span class="pun">,</span><span class="pln"> </span><span class="lit">23</span><span class="pun">,</span><span class="pln"> </span><span class="lit">92</span><span class="pun">);</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;video</span><span class="pun">.</span><span class="typ">Display</span><span class="pun">();</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Make video borrowable, then borrow and display</span></span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"\nMaking video borrowable:"</span></span><span class="pun">);</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Borrowable</span></span><span class="pln"> borrowvideo </span><span class="pun">=</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Borrowable</span></span><span class="pun">(</span><span class="pln">video</span><span class="pun">);</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;borrowvideo</span><span class="pun">.</span><span class="typ">BorrowItem</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"Customer #1"</span></span><span class="pun">);</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;borrowvideo</span><span class="pun">.</span><span class="typ">BorrowItem</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"Customer #2"</span></span><span class="pun">);</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;borrowvideo</span><span class="pun">.</span><span class="typ">Display</span><span class="pun">();</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Wait for user</span></span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> The 'Component' abstract class</span></span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">abstract</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LibraryItem</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">private</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">int</span></span><span class="pln"> _numCopies</span><span class="pun">;</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Property</span></span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">int</span></span><span class="pln"> </span><span class="typ">NumCopies</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">get</span></span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">return</span></span><span class="pln"> _numCopies</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">set</span></span><span class="pln"> </span><span class="pun">{</span><span class="pln"> _numCopies </span><span class="pun">=</span><span class="pln"> </span><span style="color: blue;"><span class="pln">value</span></span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">abstract</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">Display</span><span class="pun">();</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> The 'ConcreteComponent' class</span></span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Book</span></span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LibraryItem</span></span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">private</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">string</span></span><span class="pln"> _author</span><span class="pun">;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">private</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">string</span></span><span class="pln"> _title</span><span class="pun">;</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Constructor</span></span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span class="typ">Book</span><span class="pun">(</span><span style="color: blue;"><span class="kwd">string</span></span><span class="pln"> author</span><span class="pun">,</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">string</span></span><span class="pln"> title</span><span class="pun">,</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">int</span></span><span class="pln"> numCopies</span><span class="pun">)</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">this</span></span><span class="pun">.</span><span class="pln">_author </span><span class="pun">=</span><span class="pln"> author</span><span class="pun">;</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">this</span></span><span class="pun">.</span><span class="pln">_title </span><span class="pun">=</span><span class="pln"> title</span><span class="pun">;</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">this</span></span><span class="pun">.</span><span class="typ">NumCopies</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> numCopies</span><span class="pun">;</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">override</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">Display</span><span class="pun">()</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"\nBook ------ "</span></span><span class="pun">);</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">" Author: {0}"</span></span><span class="pun">,</span><span class="pln"> _author</span><span class="pun">);</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">" Title: {0}"</span></span><span class="pun">,</span><span class="pln"> _title</span><span class="pun">);</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">" # Copies: {0}"</span></span><span class="pun">,</span><span class="pln"> </span><span class="typ">NumCopies</span><span class="pun">);</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> The 'ConcreteComponent' class</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Video</span></span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LibraryItem</span></span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">private</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">string</span></span><span class="pln"> _director</span><span class="pun">;</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">private</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">string</span></span><span class="pln"> _title</span><span class="pun">;</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">private</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">int</span></span><span class="pln"> _playTime</span><span class="pun">;</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Constructor</span></span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span class="typ">Video</span><span class="pun">(</span><span style="color: blue;"><span class="kwd">string</span></span><span class="pln"> director</span><span class="pun">,</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">string</span></span><span class="pln"> title</span><span class="pun">,</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">int</span></span><span class="pln"> numCopies</span><span class="pun">,</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">int</span></span><span class="pln"> playTime</span><span class="pun">)</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">this</span></span><span class="pun">.</span><span class="pln">_director </span><span class="pun">=</span><span class="pln"> director</span><span class="pun">;</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">this</span></span><span class="pun">.</span><span class="pln">_title </span><span class="pun">=</span><span class="pln"> title</span><span class="pun">;</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">this</span></span><span class="pun">.</span><span class="typ">NumCopies</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> numCopies</span><span class="pun">;</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">this</span></span><span class="pun">.</span><span class="pln">_playTime </span><span class="pun">=</span><span class="pln"> playTime</span><span class="pun">;</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">override</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">Display</span><span class="pun">()</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"\nVideo ----- "</span></span><span class="pun">);</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">" Director: {0}"</span></span><span class="pun">,</span><span class="pln"> _director</span><span class="pun">);</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">" Title: {0}"</span></span><span class="pun">,</span><span class="pln"> _title</span><span class="pun">);</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">" # Copies: {0}"</span></span><span class="pun">,</span><span class="pln"> </span><span class="typ">NumCopies</span><span class="pun">);</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">" Playtime: {0}\n"</span></span><span class="pun">,</span><span class="pln"> _playTime</span><span class="pun">);</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> The 'Decorator' abstract class</span></span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">abstract</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Decorator</span></span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LibraryItem</span></span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">protected</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LibraryItem</span></span><span class="pln"> libraryItem</span><span class="pun">;</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Constructor</span></span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span class="typ">Decorator</span><span class="pun">(</span><span style="color: #2b91af;"><span class="typ">LibraryItem</span></span><span class="pln"> libraryItem</span><span class="pun">)</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">this</span></span><span class="pun">.</span><span class="pln">libraryItem </span><span class="pun">=</span><span class="pln"> libraryItem</span><span class="pun">;</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">override</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">Display</span><span class="pun">()</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libraryItem</span><span class="pun">.</span><span class="typ">Display</span><span class="pun">();</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> The 'ConcreteDecorator' class</span></span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Borrowable</span></span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Decorator</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">protected</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">List</span></span><span class="str">&lt;</span><span style="color: blue;"><span class="str">string</span></span><span class="str">&gt;</span><span class="pln"> borrowers </span><span class="pun">=</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">List</span></span><span class="str">&lt;</span><span style="color: blue;"><span class="str">string</span></span><span class="str">&gt;</span><span class="pun">();</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Constructor</span></span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span class="typ">Borrowable</span><span class="pun">(</span><span style="color: #2b91af;"><span class="typ">LibraryItem</span></span><span class="pln"> libraryItem</span><span class="pun">)</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">:</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">base</span></span><span class="pun">(</span><span class="pln">libraryItem</span><span class="pun">)</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">BorrowItem</span><span class="pun">(</span><span style="color: blue;"><span class="kwd">string</span></span><span class="pln"> name</span><span class="pun">)</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;borrowers</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="pln">name</span><span class="pun">);</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libraryItem</span><span class="pun">.</span><span class="typ">NumCopies</span><span class="pun">--;</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">ReturnItem</span><span class="pun">(</span><span style="color: blue;"><span class="kwd">string</span></span><span class="pln"> name</span><span class="pun">)</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;borrowers</span><span class="pun">.</span><span class="typ">Remove</span><span class="pun">(</span><span class="pln">name</span><span class="pun">);</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libraryItem</span><span class="pun">.</span><span class="typ">NumCopies</span><span class="pun">++;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">override</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">Display</span><span class="pun">()</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">base</span></span><span class="pun">.</span><span class="typ">Display</span><span class="pun">();</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">foreach</span></span><span class="pln"> </span><span class="pun">(</span><span style="color: blue;"><span class="kwd">string</span></span><span class="pln"> borrower </span><span style="color: blue;"><span class="kwd">in</span></span><span class="pln"> borrowers</span><span class="pun">)</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">" borrower: "</span></span><span class="pln"> </span><span class="pun">+</span><span class="pln"> borrower</span><span class="pun">);</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pun">}</span></p></div></li><li class="L6"><span class="pln">&nbsp;</span></li><li class="L7"><span class="pln">&nbsp;</span></li><li class="L8"><span class="pln">        </span></li><li class="L9"><span class="pln">            </span></li></ol></pre>
+
+            <br>
+            <h5>Output</h5>
+
+            <div class="output">
+                
+Book ------<br>
+ Author: Worley<br>
+ Title: Inside ASP.NET<br>
+ # Copies: 10<br>
+<br>
+Video -----<br>
+ Director: Spielberg<br>
+ Title: Jaws<br>
+ # Copies: 23<br>
+ Playtime: 92<br>
+<br>
+<br>
+Making video borrowable:<br>
+<br>
+Video -----<br>
+ Director: Spielberg<br>
+ Title: Jaws<br>
+ # Copies: 21<br>
+ Playtime: 92<br>
+<br>
+ borrower: Customer #1<br>
+ borrower: Customer #2<br>
+        
+            </div>
+
+            <br>
+            <br>
+            <a name="net"></a>
+            <hr class="hr-orange">
+            <br>
+
+            <h3>.NET Optimized code in C#</h3>
+            <br>
+            <p>
+                
+     The <font color="#0044aa">.NET optimized</font> code demonstrates the 
+     same real-world situation as above but uses modern, built-in .NET features,
+     such as, generics, reflection, object initializers, automatic properties, etc.
+        
+                    <span>
+                        You can find an example on our <a href="http://www.dofactory.com/net/singleton-design-pattern#net">Singleton</a> pattern page. <br><br>
+                        All other patterns (and much more) are available in our <b>.NET Design Pattern Framework 4.5.</b>
+                    </span>
+
+            </p>
+
+                <br>
+                <div style="padding:60px 30px 70px 0;background:#f7f7f9;border: 1px solid #e1e1e8;">
+                    <p style="padding-left:35px;padding-right:10px;">
+                        Not only does the <b>.NET Design Pattern Framework 4.5</b> cover GOF and Enterprise patterns, it also includes
+                        .NET pattern architectures that reduce the code you need to write by up to <span style="color:#e41e15">75%</span>.
+                        This unique package will change your .NET lifestyle -- for only $79. &nbsp;Here's what is included:
+                    </p>
+                    <br>
+
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6" style="text-align:center;">
+                            <a href="http://www.dofactory.com/products/net-design-pattern-framework">
+                                <img src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/2boxes-transparent.png" border="0" style="padding-left:20px;">
+                            </a>
+                            <br>
+                            
+                                <a href="http://www.dofactory.com/products/net-design-pattern-framework"><b>Two editions: C# and VB.NET</b></a>
+                                <br><br>
+                                <div class="ctr">
+                                    <a class="btn btn-md btn-order" href="http://www.dofactory.com/products/net-design-pattern-framework">Learn More</a>
+                                </div>
+                            
+
+
+
+
+                        </div>
+                        <div class="col-xs-12 col-md-6" style="padding:10px 0 0 0; color:#e41e15;">
+                            <ul class="xx" style="padding-left:40px;">
+                                <li>69 gang-of-four pattern projects</li>
+                                <li>46 head-first pattern projects</li>
+                                <li>Fowler's enterprise patterns</li>
+                                <li>Multi-tier patterns</li>
+                                <li>Convention over configuration</li>
+                                <li>Active Record and CQRS patterns</li>
+                                <li>Repository and Unit-of-Work patterns</li>
+                                <li>MVC, MVP, &amp; MVVM patterns</li>
+                                <li>REST patterns with Web API</li>
+                                <li>Spark<sup>TM</sup> Rapid App Dev (RAD) platform!</li>
+                                <li>Art Shop MVC Reference Application</li>
+                                <li>100% pure source code</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            <br>
+            <br>
+        </div>
+
+        <div class="col-xs-12 col-md-3 hidden-xs" style="padding-top:30px;background:white;">
+
+            <div class="ctr">
+
+                <a href="http://www.dofactory.com/products/net-design-pattern-framework">
+
+                    <img src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/dotnet_cs_4.5_box 190x277 cropped noshade transparent.png" style="width:119px;">
+                    <br><span style="color:#444;">Discover the secrets of<br>expert .NET developers</span><br>
+                </a>
+            </div>
+            <br><br>
+            
+
+<table class="table table-condensed ctr" style="width:100%;">
+    <tbody><tr>
+        <td class="table-heading table-heading-simple">Creational Patterns</td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/abstract-factory-design-pattern">Abstract Factory</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/builder-design-pattern">Builder</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/factory-method-design-pattern">Factory Method</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/prototype-design-pattern">Prototype</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/singleton-design-pattern">Singleton</a></td>
+    </tr>
+</tbody></table>
+
+<br>
+
+<table class="table table-condensed" style="width:100%;">
+    <tbody><tr>
+        <td class="table-heading table-heading-simple">Structural Patterns</td>
+    </tr>
+    <tr>
+        <td style="width:30%;border:0;"><a class="side-menu" href="http://www.dofactory.com/net/adapter-design-pattern">Adapter</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/bridge-design-pattern">Bridge</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/composite-design-pattern">Composite</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/decorator-design-pattern">Decorator</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/facade-design-pattern">Facade</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/flyweight-design-pattern">Flyweight</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/proxy-design-pattern">Proxy</a></td>
+    </tr>
+</tbody></table>
+
+<br>
+
+<table class="table table-condensed" style="width:100%;">
+    <tbody><tr>
+        <td class="table-heading table-heading-simple">Behavioral Patterns</td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/chain-of-responsibility-design-pattern">Chain of Resp.</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/command-design-pattern">Command</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/interpreter-design-pattern">Interpreter</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/iterator-design-pattern">Iterator</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/mediator-design-pattern">Mediator</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/memento-design-pattern">Memento</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/observer-design-pattern">Observer</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/state-design-pattern">State</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/strategy-design-pattern">Strategy</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/template-method-design-pattern">Template Method</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/visitor-design-pattern">Visitor</a></td>
+    </tr>
+</tbody></table>
+
+        </div>
+    </div>
+</div>
+</div>
+<br><br>
+<br><br>
+<br><br>
+
+
+
+
+    
+    <a id="scrollLeft" href="http://www.dofactory.com/net/decorator-design-pattern#" class="scrollToTop" style="left: 30px;"><i class="fa fa-arrow-up"></i></a>
+    <a id="scrollRight" href="http://www.dofactory.com/net/decorator-design-pattern#" class="scrollToTop" style="right: 30px;"><i class="fa fa-arrow-up"></i></a>
+
+    <div class="footer-bar">
+    <div class="container">
+        <div class="row" style="padding-top: 40px;">
+            <div class="col-sm-2 col-xs-12">
+                <div style="padding-left: 20px; color: #fff; font-weight:bold;">Company</div>
+                <ul class="footer-list">
+                    <li><a href="http://www.dofactory.com/about">About Us</a></li>
+                    <li><a href="http://www.dofactory.com/story">Our Story</a></li>
+                    <li><a href="http://www.dofactory.com/services">Services</a></li>
+                    <li><a href="http://www.dofactory.com/training">Training</a></li>
+                    <li><a href="http://www.dofactory.com/contact">Contact Us</a></li>
+
+                    <li style="padding-top: 15px;"><a href="http://www.dofactory.com/privacy">Privacy</a></li>
+                    <li><a href="http://www.dofactory.com/terms">Terms</a></li>
+                    <li><a href="http://www.dofactory.com/licensing">Licensing</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-3 col-xs-12">
+                <div style="padding-left: 20px; color: #fff; font-weight:bold;">Customers</div>
+                <ul class="footer-list">
+                    <li><a href="http://www.dofactory.com/customers">Our Customers</a></li>
+                    <li><a href="http://www.dofactory.com/customers/stories">Customer Stories</a></li>
+                </ul>
+                <div style="padding: 15px 0 0 20px; color: #fff; font-weight:bold;">Community</div>
+                <ul class="footer-list">
+                    <li><a href="http://www.dofactory.com/topic/search.aspx">Questions</a></li>
+                    <li><a href="http://www.dofactory.com/topic/add.aspx">Ask Question</a></li>
+                    <li><a href="http://www.dofactory.com/topic/topics.aspx">Explore</a></li>
+                    <li><a href="http://www.dofactory.com/tag/tags.aspx">Tags</a></li>
+                    <li><a href="http://www.dofactory.com/user/users.aspx">Users</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <div style="padding-left: 20px; color: #fff; font-weight:bold;">Reference Guides</div>
+                <ul class="footer-list">
+                    <li><a href="http://www.dofactory.com/net/design-patterns">.NET Design Patterns</a></li>
+                    <li><a href="http://www.dofactory.com/javascript/design-patterns">JavaScript Design Patterns</a></li>
+                    <li style="padding-top: 15px;"><a href="http://www.dofactory.com/tutorial/javascript">JavaScript Tutorial</a></li>
+                    <li><a href="http://www.dofactory.com/sql/tutorial">SQL Tutorial</a></li>
+                    <li style="padding-top: 15px;"><a href="http://www.dofactory.com/reference/connection-strings">Connection Strings</a></li>
+                    <li><a href="http://www.dofactory.com/reference/visual-studio-shortcuts">Visual Studio Shortcuts</a></li>
+                    <li><a href="http://www.dofactory.com/reference/csharp-coding-standards">C# Coding Standards</a></li>
+                    <li><a href="http://www.dofactory.com/reference/html-color-codes">HTML Colors</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4 col-xs-12">
+                <div style="padding-left: 20px; color: #fff; font-weight:bold;">Our Products</div>
+                <div class="footer-products" style="margin-top: 10px; padding-bottom: 18px;">
+                    <ul class="footer-list">
+                        <li><a href="http://www.dofactory.com/products/net-design-pattern-framework">.NET Design Pattern Framework</a> <sup style="color: #999;">TM</sup></li>
+                        <li><a href="http://www.dofactory.com/products/pro-net-design-pattern-framework">PRO .NET Design Pattern Framework</a> <sup style="color: #999;">TM</sup></li>
+                        <li style="padding-top: 17px;"><a href="http://www.dofactory.com/products/javascript-jquery-design-pattern-framework">JavaScript + jQuery Pattern Framework</a> <sup style="color: #999;">TM</sup></li>
+                        <li><a href="http://www.dofactory.com/products/sql-database-design-pattern-framework">SQL + Database Pattern Framework</a> <sup style="color: #999;">TM</sup></li>
+
+                        <li style="padding-top: 17px;"><a href="http://www.dofactory.com/products">Products and Pricing</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="footer-bar">
+    <div class="container">
+        <hr class="hr-darkbrown">
+        <div class="row" style="">
+            <div class="col-xs-12">
+                <div class="footer">© 2018 - Data &amp; Object Factory, LLC. &nbsp;dofactory.com. &nbsp;All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/jquery-2.1.1.js.download"></script>
+<script src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/jquery.validate.js.download"></script>
+<script src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/jquery.validate.unobtrusive.js.download"></script>
+
+    <script src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/bootstrap.js.download"></script>
+<script src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/twitter-bootstrap-hover-dropdown.min.js.download"></script>
+<script src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/respond.js.download"></script>
+<script src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/json2.js.download"></script>
+<script src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/prettify.js.download"></script>
+<script src="./Decorator .NET Design Pattern in C# and VB - dofactory.com_files/app.js.download"></script>
+
+
+    
+    <script type="text/javascript">
+        $(function () {
+            Dofactory.Utils.ScrollToTop.start();
+
+            Dofactory.Utils.ScrollToTarget.start();
+
+        });
+    </script>
+
+
+    <script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-1223200-3', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+
+
+<div class="nav-collapse collapse" style="visibility: hidden; position: fixed;" id="cwspear-is-awesome">.</div></body></html>

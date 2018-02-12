@@ -42,7 +42,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BehavioralPattern\Chain of Responsibility\RealTime.cs" />
+    <Compile Include="BehavioralPattern\Chain of Responsibility\Structural.cs" />
+    <Compile Include="BehavioralPattern\Command\RealTime.cs" />
+    <Compile Include="BehavioralPattern\Command\Structural.cs" />
+    <Compile Include="BehavioralPattern\Interpreter\RealTime.cs" />
+    <Compile Include="BehavioralPattern\Interpreter\Structural.cs" />
+    <Compile Include="BehavioralPattern\Iterator\RealTime.cs" />
+    <Compile Include="BehavioralPattern\Iterator\Structural.cs" />
+    <Compile Include="BehavioralPattern\Mediator\RealTime.cs" />
+    <Compile Include="BehavioralPattern\Mediator\Structural.cs" />
+    <Compile Include="BehavioralPattern\Memento\RealTime.cs" />
+    <Compile Include="BehavioralPattern\Memento\Structural.cs" />
+    <Compile Include="BehavioralPattern\Observer\RealTime.cs" />
+    <Compile Include="BehavioralPattern\Observer\Structural.cs" />
+    <Compile Include="BehavioralPattern\State\RealTime.cs" />
+    <Compile Include="BehavioralPattern\State\Structural.cs" />
+    <Compile Include="BehavioralPattern\Strategy\RealTime.cs" />
+    <Compile Include="BehavioralPattern\Strategy\Structural.cs" />
+    <Compile Include="BehavioralPattern\Template Method\RealTime.cs" />
+    <Compile Include="BehavioralPattern\Template Method\Structural.cs" />
+    <Compile Include="BehavioralPattern\Visitor\RealTime.cs" />
+    <Compile Include="BehavioralPattern\Visitor\Structural.cs" />
     <Compile Include="CreationalPattern\AbtractFactoryPattern.cs" />
+    <Compile Include="Generics\GenericList.cs" />
+    <Compile Include="Generics\TestGenericList.cs" />
     <Compile Include="StructuralPattern\BridgePattern.cs" />
     <Compile Include="CreationalPattern\FactoryPattern.cs" />
     <Compile Include="CreationalPattern\Singleton\OptimizedSingleton.cs" />

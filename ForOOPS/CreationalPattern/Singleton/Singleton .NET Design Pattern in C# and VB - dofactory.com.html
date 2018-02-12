@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://www.dofactory.com/net/singleton-design-pattern -->
+<html style="" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Singleton .NET Design Pattern in C# and VB - dofactory.com</title>
+    <meta name="keywords" content="Singleton .NET Design Pattern, Microsoft ASP.NET, C#, VB, Azure">
+    <meta name="description" content="Singleton .NET Design Pattern C# and VB.  Free source code and UML">
+    <link rel="icon" type="image/png" href="http://www.dofactory.com/favicon.ico">
+
+    <link href="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/prettify.css" rel="stylesheet">
+<link href="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/font-awesome.min.css" rel="stylesheet">
+<link href="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/bootstrap.css" rel="stylesheet">
+<link href="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/app.css" rel="stylesheet">
+
+    <script async="" src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/analytics.js.download"></script><script src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/modernizr-2.6.2.js.download"></script>
+<script src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/modernizr-2.7.2.js.download"></script>
+
+
+    <meta name="copyright" content="(c) Copyright 2018 Dofactory. All rights reserved.">
+
+<style type="text/css">.dropdown-submenu:hover>.dropdown-menu{display:none}</style></head>
+<body>
+
+    
+<div class="org-darkorange" style="height:70px;">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="pull-left " style="position:relative;height:70px; width:81px;">
+                <div style="position:absolute;top:0;left:10px;width:81px;height:90px;background:#ebe4d9;box-shadow: 1px 2px 2px rgba(68,17,0,0.5);">
+                    <a href="http://www.dofactory.com/"><img src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/logo2.png" style="width:67px;height:67px;margin:10px 0 0 8px;"></a>
+                </div>
+            </div>
+            <div class="pull-left hidden-xs" style="height:70px;">
+                <a href="http://www.dofactory.com/">
+                    <img style="margin: 20px 0 0 30px; width: 130px; height: 32px;" src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/dofactory2.png" alt="">
+                </a>
+            </div>
+            <div class="pull-right">
+                <div style="height:36px;margin-top:18px;padding:5px 10px 5px 5px;">
+                        <a style="color:#f5f1f1;" class="btn btn-darkbrown" href="http://www.dofactory.com/login.aspx">Login</a><span>&nbsp;&nbsp;&nbsp;</span>
+                        <a style="color:#f5f1f1;" class="btn btn-darkbrown" href="http://www.dofactory.com/join.aspx">Join Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="gray" style="height:35px;">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="pull-right visible-xs">
+                <a href="javascript:void(0);"><img src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/hamburger.png" style="margin:8px 8px;" onclick="$(&#39;#small-menus&#39;).slideToggle();"></a>
+            </div>
+
+            <div class="pull-left hidden-xs" style="width:87px;height:35px;">
+
+            </div>
+            <div class="pull-left hidden-xs ">
+                <div>
+                    <ul class="nav nav-pills nav-menu-pills" style="padding: 0px 0 0 20px;">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle disable domenu" data-hover="dropdown" data-target="#" href="http://www.dofactory.com/products/products.aspx">Products</a>
+                            <ul class="dropdown-menu" style="background: #aaa091;">
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/products">All Products and Pricing</a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/products/net-design-pattern-framework">.NET Design Pattern Framework <sup>TM</sup> 4.5 -- C# Edition</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/products/net-design-pattern-framework">.NET Design Pattern Framework <sup>TM</sup> 4.5 -- VB Edition</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/products/pro-net-design-pattern-framework">PRO .NET Design Pattern Framework <sup>TM</sup> 4.5 -- C# Edition</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/products/pro-net-design-pattern-framework">PRO .NET Design Pattern Framework <sup>TM</sup> 4.5 -- VB Edition</a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/products/javascript-jquery-design-pattern-framework">JavaScript + jQuery Pattern Framework <sup>TM</sup></a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/products/sql-database-design-pattern-framework">SQL + Database Pattern Framework <sup>TM</sup></a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/products/sql-database-design-pattern-framework">PRO SQL + Database Pattern Framework <sup>TM</sup></a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle disable domenu" data-hover="dropdown" data-target="#" href="http://www.dofactory.com/customers">Customers</a>
+                            <ul class="dropdown-menu" style="background: #aaa091;">
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/customers/">Meet our Customers</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/customers/stories">Success Stories</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle disable domenu" data-hover="dropdown" data-target="#" href="http://www.dofactory.com/reference">Reference Guides</a>
+                            <ul class="dropdown-menu" style="background: #aaa091;">
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/net/design-patterns">.NET Design Patterns</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/javascript/design-patterns">JavaScript Design Patterns</a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/tutorial/javascript">JavaScript Tutorial</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/sql/tutorial">SQL Tutorial</a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/reference/connection-strings">Connection Strings</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/reference/visual-studio-shortcuts">Visual Studio Shortcuts</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/reference/csharp-coding-standards">C# Coding Standards</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/reference/html-color-codes">HTML Color Codes</a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/reference">All References</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle disable domenu" data-hover="dropdown" data-target="#" href="http://www.dofactory.com/topic/search.aspx">Community</a>
+                            <ul class="dropdown-menu" style="background: #aaa091;">
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/topic/search.aspx">Questions</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/topic/add.aspx">Ask Question</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/topic/topics.aspx">Explore</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/tag/tags.aspx">Tags</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/user/users.aspx">Users</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle disable domenu" data-hover="dropdown" data-target="#" href="http://www.dofactory.com/about">About Us</a>
+                            <ul class="dropdown-menu" style="background: #aaa091;">
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/about">Company</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/story">Our Story</a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/services">Services</a></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/training">Training</a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a class="menu-item" href="http://www.dofactory.com/contact">Contact Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="visible-xs" style="clear:both;">
+    <div id="small-menus" class="gray" style="display:none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12" style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a onclick="$(&#39;#menus-1&#39;).slideToggle();" class="domenu" href="javascript:void(0);">Products</a></div>
+                <div id="menus-1" class="col-xs-12" style="display:none;">
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/products">All Products and Pricing</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/products/net-design-pattern-framework">.NET Design Pattern Framework <sup>TM</sup> 4.5 -- C# Edition</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/products/net-design-pattern-framework">.NET Design Pattern Framework <sup>TM</sup> 4.5 -- VB Edition</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/products/pro-net-design-pattern-framework">PRO .NET Design Pattern Framework <sup>TM</sup> 4.5 -- C# Edition</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/products/pro-net-design-pattern-framework">PRO .NET Design Pattern Framework <sup>TM</sup> 4.5 -- VB Edition</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/products/javascript-jquery-design-pattern-framework">JavaScript + jQuery Pattern Framework <sup>TM</sup></a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/products/sql-database-design-pattern-framework">SQL + Database Pattern Framework <sup>TM</sup></a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/products/sql-database-design-pattern-framework">PRO SQL + Database Pattern Framework <sup>TM</sup></a></div>
+                </div>
+                <div class="col-xs-12" style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a onclick="$(&#39;#menus-2&#39;).slideToggle();" class="domenu" href="javascript:void(0);">Customers</a></div>
+                <div id="menus-2" class="col-xs-12" style="display:none;">
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/customers/">Meet our Customers</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/customers/stories">Success Stories</a></div>
+                </div>
+                <div class="col-xs-12" style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a onclick="$(&#39;#menus-3&#39;).slideToggle();" class="domenu" href="javascript:void(0);">Reference Guides</a></div>
+                <div id="menus-3" class="col-xs-12" style="display:none;">
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/net/design-patterns">.NET Design Patterns</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/javascript/design-patterns">JavaScript Design Patterns</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/tutorial/javascript">JavaScript Tutorial</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/sql/tutorial">SQL Tutorial</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/reference/connection-strings">Connection Strings</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/reference/visual-studio-shortcuts">Visual Studio Shortcuts</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/reference/csharp-coding-standards">C# Coding Standards</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/reference/html-color-codes">HTML Color Codes</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/reference">All References</a></div>
+                </div>
+                <div class="col-xs-12" style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a onclick="$(&#39;#menus-4&#39;).slideToggle();" class="domenu" href="javascript:void(0);">Community</a></div>
+                <div id="menus-4" class="col-xs-12" style="display:none;">
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/topic/search.aspx">Questions</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/topic/add.aspx">Ask Question</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/topic/topics.aspx">Explore</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/tag/tags.aspx">Tags</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/user/users.aspx">Users</a></div>
+                </div>
+                <div class="col-xs-12" style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a onclick="$(&#39;#menus-5&#39;).slideToggle();" class="domenu" href="javascript:void(0);">About Us</a></div>
+                <div id="menus-5" class="col-xs-12" style="display:none;">
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/about">Company</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/story">Our Story</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/services">Services</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/training">Training</a></div>
+                    <div style="border-top: 1px solid #ccc;padding:7px 0 7px 20px;"><a class="domenu" href="http://www.dofactory.com/contact">Contact Us</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <input type="hidden" id="alert-delay">
+
+
+
+    
+
+<style>
+    ul.xx {
+        list-style: none;
+        padding-left: 15px;
+        margin: 0;
+    }
+
+        ul.xx li {
+            /*padding-left: 10px;
+    text-indent: 0px;*/
+            color: #333;
+        }
+
+            ul.xx li:before {
+                content: "• ";
+                color: #e41e15;
+                padding-right: 8px;
+            }
+</style>
+
+<div style="background:white; ">
+    
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-xs-12 col-md-9" style="padding:35px 15px 0 15px;">
+            <div style="padding:3px 0 30px 0;font-size:13px;">
+                <a class="btn btn-default btn-sm btn-back" href="http://www.dofactory.com/net/design-patterns"><i class="back-arrow"></i></a>
+                &nbsp;&nbsp;<a href="http://www.dofactory.com/net/design-patterns">back to .NET Design Patterns</a>
+                
+                
+            </div>
+
+
+            <h1>Singleton</h1>
+
+            <br>
+            <div class="clearfix">
+                <div class="pull-left">
+                    <table>
+                        <tbody><tr>
+                            <td style="width:200px;padding-left:20px;line-height:22px;">
+                                <img src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/redarrow.gif">&nbsp;<a class="scrollToTarget" href="http://www.dofactory.com/net/singleton-design-pattern#def">Definition</a><br>
+                                <img src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/redarrow.gif">&nbsp;<a class="scrollToTarget" href="http://www.dofactory.com/net/singleton-design-pattern#uml">UML diagram</a><br>
+                                <img src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/redarrow.gif">&nbsp;<a class="scrollToTarget" href="http://www.dofactory.com/net/singleton-design-pattern#par">Participants</a>
+                            </td>
+
+                        </tr>
+                    </tbody></table>
+                </div>
+                <div class="pull-left">
+                    <table>
+                        <tbody><tr>
+
+                            <td style="width:300px;padding-left:20px;">
+                                <img src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/redarrow.gif">&nbsp;<a class="scrollToTarget" href="http://www.dofactory.com/net/singleton-design-pattern#str">Structural code in C#</a><br>
+                                <img src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/redarrow.gif">&nbsp;<a class="scrollToTarget" href="http://www.dofactory.com/net/singleton-design-pattern#rea">Real-world code in C#</a><br>
+                                <img src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/redarrow.gif">&nbsp;<a class="scrollToTarget" href="http://www.dofactory.com/net/singleton-design-pattern#net">.NET Optimized code in C#
+                            </a></td>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+
+
+
+            <br>
+            <a name="def"></a>
+            <hr class="hr-orange">
+            <br>
+
+
+            <h3>Definition</h3>
+
+            <div style="width:80%;padding:6px 0;">
+                Ensure a class has only one instance and provide a global point of access to it. 
+            </div>
+
+            <br>
+
+            <div class="clearfix">
+                <div class="pull-left" style="padding:5px 20px 0 0;">Frequency of use:</div>
+                <div class="pull-left"><img src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/use_medium_high.gif"></div>
+                <div class="pull-left" style="padding:5px 0px 0 15px;">Medium high</div>
+            </div>
+
+            <br>
+            <br>
+            <a name="uml"></a>
+            <hr class="hr-orange">
+            <br>
+
+            <h3 id="uml-scroll">UML class diagram</h3>
+            <br>
+            <div style="padding-left:40px;">
+                <img class="img-responsive" src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/singleton.gif">
+            </div>
+
+            <br>
+            <br>
+            <a name="par"></a>
+            <hr class="hr-orange">
+            <br>
+
+            <h3 id="participants-scroll">Participants</h3>
+            <br>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;The classes and objects participating in this pattern are:
+            </p>
+
+            
+					<ul>
+					<li> <font color="#aa0000"><b> Singleton </b></font> &nbsp;&nbsp;<font color="#007733"><b>(LoadBalancer)</b></font>
+						<ul> <li> defines an Instance operation that lets clients access its
+						unique instance. Instance is a class operation.
+						</li><li>responsible for creating and 
+											maintaining its own unique instance.</li>
+					</ul></li>
+					</ul>
+        
+
+            <br>
+            <a name="str"></a>
+            <hr class="hr-orange">
+            <br>
+
+            <h3>Structural code in C#</h3>
+            <br>
+            <p>
+                
+			This <font color="#bb0000">structural</font> code demonstrates the Singleton pattern which assures only a single instance
+			(the singleton) of the class can be created.
+        
+            </p>
+            <div class="div-hscroll">
+                <pre class="prettyprint linenums run code-hscroll"><ol class="linenums"><li class="L0"><span class="pln">                 </span></li><li class="L1"><div class="divsource"></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span style="color: blue;"><span class="kwd">using</span></span><span class="pln"> </span><span class="typ">System</span><span class="pun">;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span style="color: blue;"><span class="kwd">namespace</span></span><span class="pln"> </span><span class="typ">DoFactory</span><span class="pun">.</span><span class="typ">GangOfFour</span><span class="pun">.</span><span class="typ">Singleton</span><span class="pun">.</span><span class="typ">Structural</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pun">{</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> MainApp startup class for Structural</span></span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> Singleton Design Pattern.</span></span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">MainApp</span></span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> Entry point into console application.</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">static</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">Main</span><span class="pun">()</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Constructor is protected -- cannot use new</span></span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Singleton</span></span><span class="pln"> s1 </span><span class="pun">=</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Singleton</span></span><span class="pun">.</span><span class="typ">Instance</span><span class="pun">();</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Singleton</span></span><span class="pln"> s2 </span><span class="pun">=</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Singleton</span></span><span class="pun">.</span><span class="typ">Instance</span><span class="pun">();</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Test for same instance</span></span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">if</span></span><span class="pln"> </span><span class="pun">(</span><span class="pln">s1 </span><span class="pun">==</span><span class="pln"> s2</span><span class="pun">)</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"Objects are the same instance"</span></span><span class="pun">);</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Wait for user</span></span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> The 'Singleton' class</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Singleton</span></span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">private</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">static</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Singleton</span></span><span class="pln"> _instance</span><span class="pun">;</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Constructor is 'protected'</span></span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">protected</span></span><span class="pln"> </span><span class="typ">Singleton</span><span class="pun">()</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">static</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Singleton</span></span><span class="pln"> </span><span class="typ">Instance</span><span class="pun">()</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Uses lazy initialization.</span></span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Note: this is not thread safe.</span></span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">if</span></span><span class="pln"> </span><span class="pun">(</span><span class="pln">_instance </span><span class="pun">==</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">null</span></span><span class="pun">)</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_instance </span><span class="pun">=</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Singleton</span></span><span class="pun">();</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">return</span></span><span class="pln"> _instance</span><span class="pun">;</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pun">}</span></p></div></li><li class="L7"><span class="pln">&nbsp;</span></li><li class="L8"><span class="pln">    </span></li><li class="L9"><span class="pln">        </span></li><li class="L0"><span class="pln">                </span></li></ol></pre>
+            </div>
+
+            <br>
+            <h5>Output</h5>
+
+            <div class="output">
+                
+Objects are the same instance<br>
+
+            </div>
+
+            <br>
+            <br>
+            <a name="rea"></a>
+            <hr class="hr-orange">
+            <br>
+
+            <h3>Real-world code in C#</h3>
+            <br>
+            <p>
+                
+This <font color="#00aa55">real-world</font> code demonstrates the Singleton pattern as a LoadBalancing object. 
+Only a single instance (the singleton) of the class can be created because
+servers may dynamically come on- or off-line and every request must 
+go throught the one object that has knowledge about the state of the (web) farm.
+        
+            </p>
+
+            <pre class="prettyprint linenums run code-hscroll"><ol class="linenums"><li class="L0"><span class="pln">                 </span></li><li class="L1"><div class="divsource"></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span style="color: blue;"><span class="kwd">using</span></span><span class="pln"> </span><span class="typ">System</span><span class="pun">;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span style="color: blue;"><span class="kwd">using</span></span><span class="pln"> </span><span class="typ">System</span><span class="pun">.</span><span class="typ">Collections</span><span class="pun">.</span><span class="typ">Generic</span><span class="pun">;</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span style="color: blue;"><span class="kwd">using</span></span><span class="pln"> </span><span class="typ">System</span><span class="pun">.</span><span class="typ">Threading</span><span class="pun">;</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span style="color: blue;"><span class="kwd">namespace</span></span><span class="pln"> </span><span class="typ">DoFactory</span><span class="pun">.</span><span class="typ">GangOfFour</span><span class="pun">.</span><span class="typ">Singleton</span><span class="pun">.</span><span class="typ">RealWorld</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pun">{</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> MainApp startup class for Real-World </span></span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> Singleton Design Pattern.</span></span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">MainApp</span></span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> Entry point into console application.</span></span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">static</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">Main</span><span class="pun">()</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pln"> b1 </span><span class="pun">=</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pun">.</span><span class="typ">GetLoadBalancer</span><span class="pun">();</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pln"> b2 </span><span class="pun">=</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pun">.</span><span class="typ">GetLoadBalancer</span><span class="pun">();</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pln"> b3 </span><span class="pun">=</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pun">.</span><span class="typ">GetLoadBalancer</span><span class="pun">();</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pln"> b4 </span><span class="pun">=</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pun">.</span><span class="typ">GetLoadBalancer</span><span class="pun">();</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Same instance?</span></span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">if</span></span><span class="pln"> </span><span class="pun">(</span><span class="pln">b1 </span><span class="pun">==</span><span class="pln"> b2 </span><span class="pun">&amp;&amp;</span><span class="pln"> b2 </span><span class="pun">==</span><span class="pln"> b3 </span><span class="pun">&amp;&amp;</span><span class="pln"> b3 </span><span class="pun">==</span><span class="pln"> b4</span><span class="pun">)</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"Same instance\n"</span></span><span class="pun">);</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Load balance 15 server requests</span></span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pln"> balancer </span><span class="pun">=</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pun">.</span><span class="typ">GetLoadBalancer</span><span class="pun">();</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">for</span></span><span class="pln"> </span><span class="pun">(</span><span style="color: blue;"><span class="kwd">int</span></span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">15</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">string</span></span><span class="pln"> server </span><span class="pun">=</span><span class="pln"> balancer</span><span class="pun">.</span><span class="typ">Server</span><span class="pun">;</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"Dispatch Request to: "</span></span><span class="pln"> </span><span class="pun">+</span><span class="pln"> server</span><span class="pun">);</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Wait for user</span></span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> The 'Singleton' class</span></span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">private</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">static</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pln"> _instance</span><span class="pun">;</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">private</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">List</span></span><span class="str">&lt;</span><span style="color: blue;"><span class="str">string</span></span><span class="str">&gt;</span><span class="pln"> _servers </span><span class="pun">=</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">List</span></span><span class="str">&lt;</span><span style="color: blue;"><span class="str">string</span></span><span class="str">&gt;</span><span class="pun">();</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">private</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Random</span></span><span class="pln"> _random </span><span class="pun">=</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Random</span></span><span class="pun">();</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Lock synchronization object</span></span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">private</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">static</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">object</span></span><span class="pln"> syncLock </span><span class="pun">=</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">object</span></span><span class="pun">();</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Constructor (protected)</span></span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">protected</span></span><span class="pln"> </span><span class="typ">LoadBalancer</span><span class="pun">()</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// List of available servers</span></span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_servers</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"ServerI"</span></span><span class="pun">);</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_servers</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"ServerII"</span></span><span class="pun">);</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_servers</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"ServerIII"</span></span><span class="pun">);</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_servers</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"ServerIV"</span></span><span class="pun">);</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_servers</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"ServerV"</span></span><span class="pun">);</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">static</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pln"> </span><span class="typ">GetLoadBalancer</span><span class="pun">()</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Support multithreaded applications through</span></span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// 'Double checked locking' pattern which (once</span></span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// the instance exists) avoids locking each</span></span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// time the method is invoked</span></span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">if</span></span><span class="pln"> </span><span class="pun">(</span><span class="pln">_instance </span><span class="pun">==</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">null</span></span><span class="pun">)</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">lock</span></span><span class="pln"> </span><span class="pun">(</span><span class="pln">syncLock</span><span class="pun">)</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">if</span></span><span class="pln"> </span><span class="pun">(</span><span class="pln">_instance </span><span class="pun">==</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">null</span></span><span class="pun">)</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_instance </span><span class="pun">=</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pun">();</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">return</span></span><span class="pln"> _instance</span><span class="pun">;</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Simple, but effective random load balancer</span></span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">string</span></span><span class="pln"> </span><span class="typ">Server</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">get</span></span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">int</span></span><span class="pln"> r </span><span class="pun">=</span><span class="pln"> _random</span><span class="pun">.</span><span class="typ">Next</span><span class="pun">(</span><span class="pln">_servers</span><span class="pun">.</span><span class="typ">Count</span><span class="pun">);</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">return</span></span><span class="pln"> _servers</span><span class="pun">[</span><span class="pln">r</span><span class="pun">].</span><span class="typ">ToString</span><span class="pun">();</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pun">}</span></p></div></li><li class="L7"><span class="pln">&nbsp;</span></li><li class="L8"><span class="pln">        </span></li><li class="L9"><span class="pln">            </span></li></ol></pre>
+
+            <br>
+            <h5>Output</h5>
+
+            <div class="output">
+                
+Same instance<br>
+<br>
+ServerIII<br>
+ServerII<br>
+ServerI<br>
+ServerII<br>
+ServerI<br>
+ServerIII<br>
+ServerI<br>
+ServerIII<br>
+ServerIV<br>
+ServerII<br>
+ServerII<br>
+ServerIII<br>
+ServerIV<br>
+ServerII<br>
+ServerIV<br>
+        
+            </div>
+
+            <br>
+            <br>
+            <a name="net"></a>
+            <hr class="hr-orange">
+            <br>
+
+            <h3>.NET Optimized code in C#</h3>
+            <br>
+            <p>
+                
+     The <font color="#0044aa">.NET optimized</font> code demonstrates the 
+     same code as above but uses more modern, built-in .NET features.<br><br>
+     Here an elegant .NET specific solution is offered. 
+     The Singleton pattern simply uses a <font color="#0044aa">private constructor</font> and a <font color="#0044aa">static readonly</font> instance 
+     variable that is <font color="#0044aa">lazily initialized</font>. Thread safety is guaranteed by 
+     the compiler. 
+        
+
+            </p>
+
+                <pre class="prettyprint linenums run code-hscroll"><ol class="linenums"><li class="L0"><span class="pln">                   </span></li><li class="L1"><div class="divsource"></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span style="color: blue;"><span class="kwd">using</span></span><span class="pln"> </span><span class="typ">System</span><span class="pun">;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span style="color: blue;"><span class="kwd">using</span></span><span class="pln"> </span><span class="typ">System</span><span class="pun">.</span><span class="typ">Collections</span><span class="pun">.</span><span class="typ">Generic</span><span class="pun">;</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span style="color: blue;"><span class="kwd">namespace</span></span><span class="pln"> </span><span class="typ">DoFactory</span><span class="pun">.</span><span class="typ">GangOfFour</span><span class="pun">.</span><span class="typ">Singleton</span><span class="pun">.</span><span class="typ">NETOptimized</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pun">{</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> MainApp startup class for .NET optimized </span></span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> Singleton Design Pattern.</span></span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">MainApp</span></span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> Entry point into console application.</span></span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">static</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">void</span></span><span class="pln"> </span><span class="typ">Main</span><span class="pun">()</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pln"> b1 </span><span class="pun">=</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pun">.</span><span class="typ">GetLoadBalancer</span><span class="pun">();</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pln"> b2 </span><span class="pun">=</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pun">.</span><span class="typ">GetLoadBalancer</span><span class="pun">();</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pln"> b3 </span><span class="pun">=</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pun">.</span><span class="typ">GetLoadBalancer</span><span class="pun">();</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pln"> b4 </span><span class="pun">=</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pun">.</span><span class="typ">GetLoadBalancer</span><span class="pun">();</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Confirm these are the same instance</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">if</span></span><span class="pln"> </span><span class="pun">(</span><span class="pln">b1 </span><span class="pun">==</span><span class="pln"> b2 </span><span class="pun">&amp;&amp;</span><span class="pln"> b2 </span><span class="pun">==</span><span class="pln"> b3 </span><span class="pun">&amp;&amp;</span><span class="pln"> b3 </span><span class="pun">==</span><span class="pln"> b4</span><span class="pun">)</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"Same instance\n"</span></span><span class="pun">);</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Next, load balance 15 requests for a server</span></span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pln"> balancer </span><span class="pun">=</span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pun">.</span><span class="typ">GetLoadBalancer</span><span class="pun">();</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">for</span></span><span class="pln"> </span><span class="pun">(</span><span style="color: blue;"><span class="kwd">int</span></span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">15</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">string</span></span><span class="pln"> serverName </span><span class="pun">=</span><span class="pln"> balancer</span><span class="pun">.</span><span class="typ">NextServer</span><span class="pun">.</span><span class="typ">Name</span><span class="pun">;</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span style="color: #a31515;"><span class="str">"Dispatch request to: "</span></span><span class="pln"> </span><span class="pun">+</span><span class="pln"> serverName</span><span class="pun">);</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Wait for user</span></span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #2b91af;"><span class="typ">Console</span></span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> The 'Singleton' class</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">sealed</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Static members are 'eagerly initialized', that is, </span></span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// immediately when class is loaded for the first time.</span></span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// .NET guarantees thread safety for static initialization</span></span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">private</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">static</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">readonly</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pln"> _instance </span><span class="pun">=</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pun">();</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Type-safe generic list of servers</span></span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">private</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">List</span></span><span class="pun">&lt;</span><span style="color: #2b91af;"><span class="typ">Server</span></span><span class="pun">&gt;</span><span class="pln"> _servers</span><span class="pun">;</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">private</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Random</span></span><span class="pln"> _random </span><span class="pun">=</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Random</span></span><span class="pun">();</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Note: constructor is 'private'</span></span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">private</span></span><span class="pln"> </span><span class="typ">LoadBalancer</span><span class="pun">()</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Load list of available servers</span></span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_servers </span><span class="pun">=</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">List</span></span><span class="pun">&lt;</span><span style="color: #2b91af;"><span class="typ">Server</span></span><span class="pun">&gt;</span><span class="pln"> </span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span><span class="pln"> </span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Server</span></span><span class="pun">{</span><span class="pln"> </span><span class="typ">Name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span style="color: #a31515;"><span class="str">"ServerI"</span></span><span class="pun">,</span><span class="pln"> IP </span><span class="pun">=</span><span class="pln"> </span><span style="color: #a31515;"><span class="str">"120.14.220.18"</span></span><span class="pln"> </span><span class="pun">},</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Server</span></span><span class="pun">{</span><span class="pln"> </span><span class="typ">Name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span style="color: #a31515;"><span class="str">"ServerII"</span></span><span class="pun">,</span><span class="pln"> IP </span><span class="pun">=</span><span class="pln"> </span><span style="color: #a31515;"><span class="str">"120.14.220.19"</span></span><span class="pln"> </span><span class="pun">},</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Server</span></span><span class="pun">{</span><span class="pln"> </span><span class="typ">Name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span style="color: #a31515;"><span class="str">"ServerIII"</span></span><span class="pun">,</span><span class="pln"> IP </span><span class="pun">=</span><span class="pln"> </span><span style="color: #a31515;"><span class="str">"120.14.220.20"</span></span><span class="pln"> </span><span class="pun">},</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Server</span></span><span class="pun">{</span><span class="pln"> </span><span class="typ">Name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span style="color: #a31515;"><span class="str">"ServerIV"</span></span><span class="pun">,</span><span class="pln"> IP </span><span class="pun">=</span><span class="pln"> </span><span style="color: #a31515;"><span class="str">"120.14.220.21"</span></span><span class="pln"> </span><span class="pun">},</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">new</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Server</span></span><span class="pun">{</span><span class="pln"> </span><span class="typ">Name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span style="color: #a31515;"><span class="str">"ServerV"</span></span><span class="pun">,</span><span class="pln"> IP </span><span class="pun">=</span><span class="pln"> </span><span style="color: #a31515;"><span class="str">"120.14.220.22"</span></span><span class="pln"> </span><span class="pun">},</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">};</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">static</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">LoadBalancer</span></span><span class="pln"> </span><span class="typ">GetLoadBalancer</span><span class="pun">()</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">return</span></span><span class="pln"> _instance</span><span class="pun">;</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Simple, but effective load balancer</span></span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Server</span></span><span class="pln"> </span><span class="typ">NextServer</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">get</span></span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">int</span></span><span class="pln"> r </span><span class="pun">=</span><span class="pln"> _random</span><span class="pun">.</span><span class="typ">Next</span><span class="pun">(</span><span class="pln">_servers</span><span class="pun">.</span><span class="typ">Count</span><span class="pun">);</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">return</span></span><span class="pln"> _servers</span><span class="pun">[</span><span class="pln">r</span><span class="pun">];</span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;summary&gt;</span></span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> Represents a server machine</span></span></p></div></li><li class="L9"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: gray;"><span class="com">///</span></span><span style="color: green;"><span class="com"> </span></span><span style="color: gray;"><span class="com">&lt;/summary&gt;</span></span></p></div></li><li class="L0"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">class</span></span><span class="pln"> </span><span style="color: #2b91af;"><span class="typ">Server</span></span></p></div></li><li class="L1"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span></p></div></li><li class="L2"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Gets or sets server name</span></span></p></div></li><li class="L3"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">string</span></span><span class="pln"> </span><span class="typ">Name</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">get</span></span><span class="pun">;</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">set</span></span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></p></div></li><li class="L4"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;</span></p></div></li><li class="L5"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: green;"><span class="com">// Gets or sets server IP address</span></span></p></div></li><li class="L6"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: blue;"><span class="kwd">public</span></span><span class="pln"> </span><span style="color: blue;"><span class="kwd">string</span></span><span class="pln"> IP </span><span class="pun">{</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">get</span></span><span class="pun">;</span><span class="pln"> </span><span style="color: blue;"><span class="kwd">set</span></span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></p></div></li><li class="L7"><div class="divsource"><p style="margin: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></p></div></li><li class="L8"><div class="divsource"><p style="margin: 0px;"><span class="pun">}</span></p></div></li><li class="L9"><span class="pln">&nbsp;</span></li><li class="L0"><span class="pln">       </span></li><li class="L1"><span class="pln">                </span></li></ol></pre>
+                <br>
+                <h5>Output</h5>
+                <div class="output">
+                    
+Same instance<br>
+<br>
+ServerIV<br>
+ServerIV<br>
+ServerIII<br>
+ServerV<br>
+ServerII<br>
+ServerV<br>
+ServerII<br>
+ServerII<br>
+ServerI<br>
+ServerIV<br>
+ServerIV<br>
+ServerII<br>
+ServerI<br>
+ServerV<br>
+ServerIV<br>
+            
+                </div>
+
+            <br>
+            <br>
+        </div>
+
+        <div class="col-xs-12 col-md-3 hidden-xs" style="padding-top:30px;background:white;">
+
+            <div class="ctr">
+
+                <a href="http://www.dofactory.com/products/net-design-pattern-framework">
+
+                    <img src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/dotnet_cs_4.5_box 190x277 cropped noshade transparent.png" style="width:119px;">
+                    <br><span style="color:#444;">Discover the secrets of<br>expert .NET developers</span><br>
+                </a>
+            </div>
+            <br><br>
+            
+
+<table class="table table-condensed ctr" style="width:100%;">
+    <tbody><tr>
+        <td class="table-heading table-heading-simple">Creational Patterns</td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/abstract-factory-design-pattern">Abstract Factory</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/builder-design-pattern">Builder</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/factory-method-design-pattern">Factory Method</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/prototype-design-pattern">Prototype</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/singleton-design-pattern">Singleton</a></td>
+    </tr>
+</tbody></table>
+
+<br>
+
+<table class="table table-condensed" style="width:100%;">
+    <tbody><tr>
+        <td class="table-heading table-heading-simple">Structural Patterns</td>
+    </tr>
+    <tr>
+        <td style="width:30%;border:0;"><a class="side-menu" href="http://www.dofactory.com/net/adapter-design-pattern">Adapter</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/bridge-design-pattern">Bridge</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/composite-design-pattern">Composite</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/decorator-design-pattern">Decorator</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/facade-design-pattern">Facade</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/flyweight-design-pattern">Flyweight</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/proxy-design-pattern">Proxy</a></td>
+    </tr>
+</tbody></table>
+
+<br>
+
+<table class="table table-condensed" style="width:100%;">
+    <tbody><tr>
+        <td class="table-heading table-heading-simple">Behavioral Patterns</td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/chain-of-responsibility-design-pattern">Chain of Resp.</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/command-design-pattern">Command</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/interpreter-design-pattern">Interpreter</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/iterator-design-pattern">Iterator</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/mediator-design-pattern">Mediator</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/memento-design-pattern">Memento</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/observer-design-pattern">Observer</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/state-design-pattern">State</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/strategy-design-pattern">Strategy</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/template-method-design-pattern">Template Method</a></td>
+    </tr>
+    <tr>
+        <td><a class="side-menu" href="http://www.dofactory.com/net/visitor-design-pattern">Visitor</a></td>
+    </tr>
+</tbody></table>
+
+        </div>
+    </div>
+</div>
+</div>
+<br><br>
+<br><br>
+<br><br>
+
+
+
+
+    
+    <a id="scrollLeft" href="http://www.dofactory.com/net/singleton-design-pattern#" class="scrollToTop" style="left: 30px;"><i class="fa fa-arrow-up"></i></a>
+    <a id="scrollRight" href="http://www.dofactory.com/net/singleton-design-pattern#" class="scrollToTop" style="right: 30px;"><i class="fa fa-arrow-up"></i></a>
+
+    <div class="footer-bar">
+    <div class="container">
+        <div class="row" style="padding-top: 40px;">
+            <div class="col-sm-2 col-xs-12">
+                <div style="padding-left: 20px; color: #fff; font-weight:bold;">Company</div>
+                <ul class="footer-list">
+                    <li><a href="http://www.dofactory.com/about">About Us</a></li>
+                    <li><a href="http://www.dofactory.com/story">Our Story</a></li>
+                    <li><a href="http://www.dofactory.com/services">Services</a></li>
+                    <li><a href="http://www.dofactory.com/training">Training</a></li>
+                    <li><a href="http://www.dofactory.com/contact">Contact Us</a></li>
+
+                    <li style="padding-top: 15px;"><a href="http://www.dofactory.com/privacy">Privacy</a></li>
+                    <li><a href="http://www.dofactory.com/terms">Terms</a></li>
+                    <li><a href="http://www.dofactory.com/licensing">Licensing</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-3 col-xs-12">
+                <div style="padding-left: 20px; color: #fff; font-weight:bold;">Customers</div>
+                <ul class="footer-list">
+                    <li><a href="http://www.dofactory.com/customers">Our Customers</a></li>
+                    <li><a href="http://www.dofactory.com/customers/stories">Customer Stories</a></li>
+                </ul>
+                <div style="padding: 15px 0 0 20px; color: #fff; font-weight:bold;">Community</div>
+                <ul class="footer-list">
+                    <li><a href="http://www.dofactory.com/topic/search.aspx">Questions</a></li>
+                    <li><a href="http://www.dofactory.com/topic/add.aspx">Ask Question</a></li>
+                    <li><a href="http://www.dofactory.com/topic/topics.aspx">Explore</a></li>
+                    <li><a href="http://www.dofactory.com/tag/tags.aspx">Tags</a></li>
+                    <li><a href="http://www.dofactory.com/user/users.aspx">Users</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <div style="padding-left: 20px; color: #fff; font-weight:bold;">Reference Guides</div>
+                <ul class="footer-list">
+                    <li><a href="http://www.dofactory.com/net/design-patterns">.NET Design Patterns</a></li>
+                    <li><a href="http://www.dofactory.com/javascript/design-patterns">JavaScript Design Patterns</a></li>
+                    <li style="padding-top: 15px;"><a href="http://www.dofactory.com/tutorial/javascript">JavaScript Tutorial</a></li>
+                    <li><a href="http://www.dofactory.com/sql/tutorial">SQL Tutorial</a></li>
+                    <li style="padding-top: 15px;"><a href="http://www.dofactory.com/reference/connection-strings">Connection Strings</a></li>
+                    <li><a href="http://www.dofactory.com/reference/visual-studio-shortcuts">Visual Studio Shortcuts</a></li>
+                    <li><a href="http://www.dofactory.com/reference/csharp-coding-standards">C# Coding Standards</a></li>
+                    <li><a href="http://www.dofactory.com/reference/html-color-codes">HTML Colors</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4 col-xs-12">
+                <div style="padding-left: 20px; color: #fff; font-weight:bold;">Our Products</div>
+                <div class="footer-products" style="margin-top: 10px; padding-bottom: 18px;">
+                    <ul class="footer-list">
+                        <li><a href="http://www.dofactory.com/products/net-design-pattern-framework">.NET Design Pattern Framework</a> <sup style="color: #999;">TM</sup></li>
+                        <li><a href="http://www.dofactory.com/products/pro-net-design-pattern-framework">PRO .NET Design Pattern Framework</a> <sup style="color: #999;">TM</sup></li>
+                        <li style="padding-top: 17px;"><a href="http://www.dofactory.com/products/javascript-jquery-design-pattern-framework">JavaScript + jQuery Pattern Framework</a> <sup style="color: #999;">TM</sup></li>
+                        <li><a href="http://www.dofactory.com/products/sql-database-design-pattern-framework">SQL + Database Pattern Framework</a> <sup style="color: #999;">TM</sup></li>
+
+                        <li style="padding-top: 17px;"><a href="http://www.dofactory.com/products">Products and Pricing</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="footer-bar">
+    <div class="container">
+        <hr class="hr-darkbrown">
+        <div class="row" style="">
+            <div class="col-xs-12">
+                <div class="footer">© 2018 - Data &amp; Object Factory, LLC. &nbsp;dofactory.com. &nbsp;All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/jquery-2.1.1.js.download"></script>
+<script src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/jquery.validate.js.download"></script>
+<script src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/jquery.validate.unobtrusive.js.download"></script>
+
+    <script src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/bootstrap.js.download"></script>
+<script src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/twitter-bootstrap-hover-dropdown.min.js.download"></script>
+<script src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/respond.js.download"></script>
+<script src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/json2.js.download"></script>
+<script src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/prettify.js.download"></script>
+<script src="./Singleton .NET Design Pattern in C# and VB - dofactory.com_files/app.js.download"></script>
+
+
+    
+    <script type="text/javascript">
+        $(function () {
+            Dofactory.Utils.ScrollToTop.start();
+
+            Dofactory.Utils.ScrollToTarget.start();
+
+        });
+    </script>
+
+
+    <script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-1223200-3', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+
+
+<div class="nav-collapse collapse" style="visibility: hidden; position: fixed;" id="cwspear-is-awesome">.</div></body></html>

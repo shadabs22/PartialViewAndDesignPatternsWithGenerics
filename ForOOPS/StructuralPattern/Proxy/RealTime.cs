@@ -14,7 +14,7 @@ namespace ForOOPS.StructuralPattern.Proxy
 
         /// </summary>
 
-        static void Main()
+        void Main()
         {
             // Create math proxy
 
