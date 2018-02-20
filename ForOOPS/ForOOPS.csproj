@@ -64,7 +64,8 @@
     <Compile Include="BehavioralPattern\Template Method\Structural.cs" />
     <Compile Include="BehavioralPattern\Visitor\RealTime.cs" />
     <Compile Include="BehavioralPattern\Visitor\Structural.cs" />
-    <Compile Include="CreationalPattern\AbtractFactoryPattern.cs" />
+    <Compile Include="CreationalPattern\Abstract Factory\AbtractFactoryPattern.cs" />
+    <Compile Include="CreationalPattern\Abstract Factory\RealTime.cs" />
     <Compile Include="Generics\GenericList.cs" />
     <Compile Include="Generics\TestGenericList.cs" />
     <Compile Include="StructuralPattern\BridgePattern.cs" />

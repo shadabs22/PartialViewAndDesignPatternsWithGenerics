@@ -50,7 +50,6 @@ namespace ForOOPS
         }
     }
 
-
     interface SimpleInterface
     {
         void SimpleInterfaceMthd();
@@ -291,10 +290,13 @@ namespace ForOOPS
             ComponentList.Add((T)result);
         }
 
-        void Main(string[] args)
+        static void Main(string[] args)
         {
             try
             {
+                
+                TestPrivateConstructor a1 = new TestPrivateConstructor();
+
                 sealedClass sealedCls = new sealedClass();
                 sealedClass.method();
 
@@ -327,5 +329,28 @@ namespace ForOOPS
 
             }
         }
+    }
+}
+
+
+public abstract class E
+{
+    public abstract void AbstractMethod(int i);
+
+    public virtual void VirtualMethod(int i)
+    {
+        // Default implementation which can be overridden by subclasses.
+    }
+}
+
+public class D : E
+{
+    public override void AbstractMethod(int i)
+    {
+        // You HAVE to override this method
+    }
+    public override void VirtualMethod(int i)
+    {
+        // You are allowed to override this method.
     }
 }

@@ -23,7 +23,7 @@ namespace ForOOPS.BehavioralPattern.Visitor1
 
         /// </summary>
 
-        static void Main()
+        void Main()
         {
             // Setup employee collection
 

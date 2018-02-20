@@ -11,7 +11,7 @@ namespace ForOOPS
         /// <summary>
         /// Entry point into console application.
         /// </summary>
-        public void Main()
+        void Main()
         {
             // Abstract factory #1
             AbstractFactory factory1 = new ConcreteFactory1();
